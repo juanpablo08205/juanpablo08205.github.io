@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juan Pablo Vázquez · CV</title>
+<meta name="description" content="Juan Pablo Vázquez Lara Herrera — Software Engineering student. Full-stack web projects, CV in English and Spanish.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE formal personal page, an engineer's datasheet
+   IDEA a printed technical datasheet: cobalt title strip, exact panels on one grid
+   PICTURE the flagship project drawn working: a table QR, the phone menu, a kitchen ticket moving to "ready"
+   COLOUR white ground, black ink, cobalt #1240e0 strip, pale #eef2ff zones; night #0a0d18
+   TYPE Space Grotesk 600 display + Inter text
+   LAYOUT laptop: strip with name left, drawing right; panels below in two columns. phone: name, drawing, sections stacked */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0a0d18);--ink:light-dark(#0b0d12,#e9ecf5);--soft:light-dark(#4a5162,#a3abc0);--zone:light-dark(#eef2ff,#121833);--line:light-dark(#d6dcef,#262e4d);--blue:#1240e0;--blue2:light-dark(#1240e0,#7d98ff);--on:#ffffff}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+a{color:var(--blue2)}
+h1,h2,h3{font-family:"Space Grotesk",Inter,system-ui,sans-serif;letter-spacing:-.02em;line-height:1.08;margin:0}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(28px,4vw,56px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+.top{position:sticky;top:0;z-index:5;background:var(--blue);color:var(--on)}
+.top .wrap{display:flex;align-items:center;gap:16px;padding:10px max(5vw,16px);flex-wrap:wrap}
+.top b{font-family:"Space Grotesk",sans-serif;font-weight:600;margin-right:auto}
+.top nav{display:flex;gap:4px;flex-wrap:wrap}
+.top nav a{color:var(--on);text-decoration:none;font-size:14px;padding:8px 10px;border-radius:6px}
+.top nav a:hover,.top nav a:focus-visible{background:rgba(255,255,255,.16);outline:none}
+.lang{display:flex;border:1px solid rgba(255,255,255,.5);border-radius:8px;overflow:hidden}
+.lang button{font:600 14px Inter,sans-serif;color:var(--on);background:transparent;border:0;padding:0 14px;min-height:40px;cursor:pointer}
+.lang button[aria-pressed=true]{background:#fff;color:var(--blue)}
+.lang button:focus-visible{outline:2px solid #fff;outline-offset:-4px}
+.hero{background:var(--blue);color:var(--on)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.hero h1{font-size:clamp(36px,5.2vw,58px);font-weight:700;text-wrap:balance}
+.hero .role{font:600 clamp(18px,2vw,22px)/1.3 "Space Grotesk",sans-serif;margin:14px 0 18px;opacity:.95}
+.hero p{max-width:60ch;margin:0 0 22px;color:#e4e9ff}
+.contact{display:flex;flex-wrap:wrap;gap:10px}
+.contact a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px}
+.contact .pri{background:#fff;color:var(--blue)}
+.contact .sec{border:1px solid rgba(255,255,255,.55);color:#fff}
+.contact a:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.meta{margin-top:16px;font-size:14px;color:#d4dcff}
+.fig{position:relative;aspect-ratio:5/4;width:100%}
+.fig svg{position:absolute;inset:0;width:100%;height:100%}
+.facts{background:var(--zone);border-bottom:1px solid var(--line)}
+.facts .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(11em,1fr));gap:0}
+.fact{padding:18px 20px;border-left:1px solid var(--line)}
+.fact:first-child{border-left:0}
+.fact strong{display:block;font:600 22px/1.2 "Space Grotesk",sans-serif;color:var(--blue2)}
+.fact span{font-size:14px;color:var(--soft)}
+h2{font-size:clamp(26px,3vw,34px);margin-bottom:22px}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.panel{border:1px solid var(--line);border-radius:12px;padding:22px;background:var(--bg)}
+.panel h3{font-size:20px}
+.when{font-size:14px;color:var(--soft);margin:4px 0 10px}
+.panel ul{margin:8px 0 0;padding-left:20px}
+.panel li{margin:6px 0}
+.proj{display:grid;gap:20px}
+.card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.card .side{background:var(--zone);padding:22px;display:flex;flex-direction:column;gap:12px;border-right:1px solid var(--line)}
+.card .side h3{font-size:22px}
+.card .body{padding:22px}
+.card .body ul{margin:0;padding-left:20px}
+.card .body li{margin:7px 0}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:13px;padding:3px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.repo{margin-top:auto;display:inline-flex;align-items:center;gap:6px;font-weight:600;min-height:44px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(16em,1fr));gap:16px}
+.skills .panel h3{font-size:17px;margin-bottom:10px}
+.langs .row{display:grid;grid-template-columns:7em minmax(0,1fr) auto;gap:12px;align-items:center;margin:12px 0}
+.bar{height:10px;border-radius:5px;background:var(--zone);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--blue2)}
+.langs small{white-space:nowrap;color:var(--soft);font-size:14px}
+.soft dt{font-weight:600;margin-top:14px}
+.soft dd{margin:2px 0 0;color:var(--soft)}
+footer{background:var(--blue);color:#e4e9ff;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+footer a{color:#fff}
+.alt{background:var(--zone)}
+@media(max-width:860px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.fig{max-width:520px}.grid2{grid-template-columns:minmax(0,1fr)}.card{grid-template-columns:minmax(0,1fr)}.card .side{border-right:0;border-bottom:1px solid var(--line)}}
+@media(max-width:600px){.top nav{display:none}.fact{border-left:0;border-top:1px solid var(--line)}.fact:first-child{border-top:0}.langs .row{grid-template-columns:6em minmax(0,1fr)}.langs small{grid-column:1/-1;margin-top:-6px}}
+@media(prefers-reduced-motion:no-preference){#tk{animation:slide 6s ease-in-out infinite}@keyframes slide{0%,35%{transform:translateX(0)}55%,100%{transform:translateX(118px)}}}
+@media print{.top{display:none}.hero,footer{background:#fff;color:#000}.hero p,.meta{color:#000}.fig{display:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <b>JP Vázquez</b>
+    <nav aria-label="Secciones">
+      <a href="#educacion" data-i18n="nEdu">Formación</a>
+      <a href="#proyectos" data-i18n="nProj">Proyectos</a>
+      <a href="#habilidades" data-i18n="nSkills">Habilidades</a>
+      <a href="#contacto" data-i18n="nContact">Contacto</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button id="b-es" type="button" aria-pressed="true" data-l="es">ES</button>
+      <button id="b-en" type="button" aria-pressed="false" data-l="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero band">
+  <div class="wrap">
+    <div>
+      <h1>Juan Pablo Vázquez Lara Herrera</h1>
+      <div class="role" data-i18n="role">Estudiante de Ingeniería en Software · Desarrollo web full-stack</div>
+      <p data-i18n="profile">Estudiante de Ingeniería en Software en la Universidad de Colima, con experiencia en el desarrollo de aplicaciones web full-stack que integran datos en tiempo real, pagos en línea, control de acceso por roles y pruebas automatizadas. Busco prácticas profesionales en desarrollo de software, en modalidad remota o presencial.</p>
+      <div class="contact">
+        <a class="pri" href="mailto:juanpisvlh@gmail.com">juanpisvlh@gmail.com</a>
+        <a class="sec" href="https://github.com/juanpablo08205">GitHub ↗</a>
+      </div>
+      <div class="meta" data-i18n="where">Colima, México · Disponible para prácticas en 2027</div>
+    </div>
+    <div class="fig" role="img" aria-label="Ilustración del proyecto principal: un pedido escaneado por QR en el teléfono llega a la pantalla de cocina">
+      <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="scr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e8edff"/></linearGradient>
+          <linearGradient id="mon" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1a4d"/><stop offset="1" stop-color="#061033"/></linearGradient>
+        </defs>
+        <ellipse cx="250" cy="372" rx="230" ry="14" fill="#0a2aa0" opacity=".55"/>
+        <!-- kitchen monitor -->
+        <rect x="170" y="40" width="310" height="230" rx="14" fill="url(#mon)"/>
+        <rect x="170" y="40" width="310" height="6" rx="3" fill="#3a5cff" opacity=".6"/>
+        <rect x="300" y="270" width="50" height="62" fill="#08144a"/>
+        <rect x="262" y="330" width="126" height="12" rx="6" fill="#08144a"/>
+        <text x="190" y="74" fill="#c9d4ff" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" id="t-k">Cocina</text>
+        <text x="345" y="74" fill="#c9d4ff" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" id="t-r">Listo</text>
+        <line x1="335" y1="86" x2="335" y2="256" stroke="#2a3c8c" stroke-dasharray="4 5"/>
+        <g id="tk">
+          <rect x="190" y="92" width="128" height="96" rx="8" fill="#ffffff"/>
+          <rect x="190" y="92" width="128" height="22" rx="8" fill="#ffcf3f"/>
+          <rect x="190" y="104" width="128" height="10" fill="#ffcf3f"/>
+          <text x="200" y="108" font-family="Inter,sans-serif" font-size="12" font-weight="600" fill="#1b1b1b" id="t-m">Mesa 4</text>
+          <rect x="200" y="126" width="80" height="7" rx="3.5" fill="#c9cfe0"/>
+          <rect x="200" y="142" width="96" height="7" rx="3.5" fill="#c9cfe0"/>
+          <rect x="200" y="158" width="62" height="7" rx="3.5" fill="#c9cfe0"/>
+          <circle cx="300" cy="170" r="8" fill="#1240e0"/>
+        </g>
+        <g opacity=".9">
+          <rect x="190" y="200" width="128" height="52" rx="8" fill="#1a2b6e"/>
+          <rect x="200" y="214" width="70" height="7" rx="3.5" fill="#3d55b8"/>
+          <rect x="200" y="230" width="94" height="7" rx="3.5" fill="#3d55b8"/>
+        </g>
+        <!-- phone -->
+        <rect x="40" y="112" width="148" height="262" rx="22" fill="#0b0d12"/>
+        <rect x="48" y="126" width="132" height="236" rx="14" fill="url(#scr)"/>
+        <rect x="94" y="116" width="40" height="6" rx="3" fill="#2b2f3a"/>
+        <rect x="58" y="138" width="80" height="10" rx="5" fill="#1240e0"/>
+        <g fill="#ffffff" stroke="#d6dcef">
+          <rect x="58" y="158" width="112" height="42" rx="8"/>
+          <rect x="58" y="206" width="112" height="42" rx="8"/>
+          <rect x="58" y="254" width="112" height="42" rx="8"/>
+        </g>
+        <g fill="#ffcf3f"><rect x="64" y="164" width="30" height="30" rx="6"/><rect x="64" y="212" width="30" height="30" rx="6"/><rect x="64" y="260" width="30" height="30" rx="6"/></g>
+        <g fill="#c9cfe0"><rect x="100" y="170" width="54" height="6" rx="3"/><rect x="100" y="218" width="44" height="6" rx="3"/><rect x="100" y="266" width="58" height="6" rx="3"/></g>
+        <g fill="#1240e0"><rect x="100" y="182" width="26" height="6" rx="3"/><rect x="100" y="230" width="26" height="6" rx="3"/><rect x="100" y="278" width="26" height="6" rx="3"/></g>
+        <rect x="58" y="314" width="112" height="34" rx="10" fill="#1240e0"/>
+        <text x="114" y="336" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="12" font-weight="600" id="t-p">Pagar</text>
+        <!-- table QR -->
+        <g transform="translate(20 40)">
+          <rect width="78" height="60" rx="8" fill="#ffffff"/>
+          <path d="M39 60 L39 76" stroke="#ffffff" stroke-width="6"/>
+          <g fill="#0b0d12">
+            <rect x="10" y="10" width="16" height="16" rx="2"/><rect x="52" y="10" width="16" height="16" rx="2"/><rect x="10" y="34" width="16" height="16" rx="2"/>
+            <rect x="32" y="12" width="6" height="6"/><rect x="40" y="22" width="6" height="6"/><rect x="32" y="34" width="6" height="6"/><rect x="44" y="40" width="6" height="6"/><rect x="56" y="34" width="6" height="6"/><rect x="62" y="44" width="6" height="6"/><rect x="36" y="44" width="6" height="6"/>
+          </g>
+        </g>
+        <path d="M100 80 C140 80 150 96 150 104" fill="none" stroke="#ffcf3f" stroke-width="3" stroke-dasharray="5 6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="facts">
+  <div class="wrap">
+    <div class="fact"><strong>3</strong><span data-i18n="f1">proyectos full-stack publicados en GitHub</span></div>
+    <div class="fact"><strong>20</strong><span data-i18n="f2">pruebas automatizadas con pytest</span></div>
+    <div class="fact"><strong>B2 · A2–B1</strong><span data-i18n="f3">inglés (Cambridge) · alemán</span></div>
+    <div class="fact"><strong data-i18n="f4a">Alemania</strong><span data-i18n="f4">intercambio en TH Aschaffenburg</span></div>
+  </div>
+</section>
+
+<section class="band" id="educacion">
+  <div class="wrap">
+    <h2 data-i18n="hEdu">Formación académica</h2>
+    <div class="grid2">
+      <article class="panel">
+        <h3 data-i18n="deg">Ingeniería en Software</h3>
+        <div class="when" data-i18n="degWhen">Universidad de Colima, Facultad de Telemática · Agosto 2023 – 2027 (en curso)</div>
+        <ul><li data-i18n="thesis">Tesis: “Dependencia cognitiva en usuarios de IA: un estudio desde la ingeniería de software”.</li></ul>
+      </article>
+      <article class="panel">
+        <h3 data-i18n="exch">Programa de intercambio académico</h3>
+        <div class="when" data-i18n="exchWhen">TH Aschaffenburg, Alemania · Septiembre 2025 – Marzo 2026</div>
+        <ul><li data-i18n="exchAI">Cursos de Inteligencia Artificial, con énfasis en razonamiento probabilístico y modelado de redes bayesianas con HUGIN 9.6.</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="band alt" id="proyectos">
+  <div class="wrap">
+    <h2 data-i18n="hProj">Proyectos destacados</h2>
+    <div class="proj" id="projList"></div>
+  </div>
+</section>
+
+<section class="band" id="habilidades">
+  <div class="wrap">
+    <h2 data-i18n="hSkills">Conocimientos técnicos</h2>
+    <div class="skills" id="skillList"></div>
+  </div>
+</section>
+
+<section class="band alt">
+  <div class="wrap grid2">
+    <article class="panel langs">
+      <h3 data-i18n="hLang">Idiomas</h3>
+      <div class="row"><span data-i18n="es">Español</span><div class="bar"><i style="width:100%"></i></div><small data-i18n="esL">Lengua materna</small></div>
+      <div class="row"><span data-i18n="en">Inglés</span><div class="bar"><i style="width:70%"></i></div><small data-i18n="enL">B2 · Cambridge English</small></div>
+      <div class="row"><span data-i18n="de">Alemán</span><div class="bar"><i style="width:42%"></i></div><small>A2–B1</small></div>
+    </article>
+    <article class="panel">
+      <h3 data-i18n="hSoft">Competencias profesionales</h3>
+      <dl class="soft" id="softList"></dl>
+    </article>
+  </div>
+</section>
+
+<footer class="band" id="contacto">
+  <div class="wrap">
+    <div><strong>Juan Pablo Vázquez Lara Herrera</strong><br><span data-i18n="fCall">¿Buscas un practicante? Escríbeme a</span> <a href="mailto:juanpisvlh@gmail.com">juanpisvlh@gmail.com</a></div>
+    <div><a href="https://github.com/juanpablo08205">github.com/juanpablo08205</a></div>
+  </div>
+</footer>
+
+<script>
+{
+const T={
+es:{nEdu:"Formación",nProj:"Proyectos",nSkills:"Habilidades",nContact:"Contacto",role:"Estudiante de Ingeniería en Software · Desarrollo web full-stack",
+profile:"Estudiante de Ingeniería en Software en la Universidad de Colima, con experiencia en el desarrollo de aplicaciones web full-stack que integran datos en tiempo real, pagos en línea, control de acceso por roles y pruebas automatizadas. Busco prácticas profesionales en desarrollo de software, en modalidad remota o presencial.",
+where:"Colima, México · Disponible para prácticas profesionales",f1:"proyectos full-stack publicados en GitHub",f2:"pruebas automatizadas con pytest",f3:"inglés (Cambridge) · alemán",f4a:"Alemania",f4:"intercambio en TH Aschaffenburg",
+hEdu:"Formación académica",deg:"Ingeniería en Software",degWhen:"Universidad de Colima, Facultad de Telemática · Agosto 2023 – 2027 (en curso)",thesis:"Tesis: “Dependencia cognitiva en usuarios de IA: un estudio desde la ingeniería de software”.",
+exch:"Programa de intercambio académico",exchWhen:"TH Aschaffenburg, Alemania · Septiembre 2025 – Marzo 2026",exchAI:"Cursos de Inteligencia Artificial, con énfasis en razonamiento probabilístico y modelado de redes bayesianas con HUGIN 9.6.",
+hProj:"Proyectos destacados",hSkills:"Conocimientos técnicos",hLang:"Idiomas",es:"Español",en:"Inglés",de:"Alemán",esL:"Lengua materna",enL:"B2 · Cambridge English",hSoft:"Competencias profesionales",
+fCall:"¿Buscas un practicante? Escríbeme a",repo:"Ver repositorio",k:"Cocina",r:"Listo",m:"Mesa 4",p:"Pagar",title:"Juan Pablo Vázquez · CV"},
+en:{nEdu:"Education",nProj:"Projects",nSkills:"Skills",nContact:"Contact",role:"Software Engineering Student · Full-stack web development",
+profile:"Software Engineering student at the University of Colima with hands-on experience building full-stack web applications with real-time data, online payments, role-based access control and automated tests. Looking for a software engineering internship, remote or on-site.",
+where:"Colima, Mexico · Available for internships",f1:"full-stack projects published on GitHub",f2:"automated tests with pytest",f3:"English (Cambridge) · German",f4a:"Germany",f4:"exchange semester at TH Aschaffenburg",
+hEdu:"Education",deg:"B.Eng. Software Engineering",degWhen:"University of Colima, Faculty of Telematics · Aug 2023 – 2027 (expected)",thesis:"Thesis: “Cognitive Dependence in AI Users: A Software Engineering Study”.",
+exch:"Academic exchange",exchWhen:"TH Aschaffenburg, Germany · September 2025 – March 2026",exchAI:"Artificial Intelligence coursework, including probabilistic reasoning and Bayesian network modeling with HUGIN 9.6.",
+hProj:"Featured projects",hSkills:"Technical skills",hLang:"Languages",es:"Spanish",en:"English",de:"German",esL:"Native",enL:"B2 · Cambridge English",hSoft:"Soft skills",
+fCall:"Looking for an intern? Write to me at",repo:"View repository",k:"Kitchen",r:"Ready",m:"Table 4",p:"Pay",title:"Juan Pablo Vázquez · CV"}
+};
+const P=[
+{name:{es:"Plataforma de pedidos y gestión para restaurantes",en:"Restaurant Ordering & Management Platform"},
+tags:["Next.js","React","TypeScript","Supabase","PostgreSQL","Stripe","Tailwind"],url:"https://github.com/juanpablo08205/restaurant-ordering-app",
+pts:{es:["Plataforma multi-restaurante: el cliente escanea el QR de su mesa, consulta el menú y hace su pedido, con pago con tarjeta (Stripe) o en efectivo.","Esquema PostgreSQL (restaurantes, roles de personal, mesas, menú, pedidos, pagos y llamadas al mesero) protegido con políticas de Row Level Security y triggers.","Paneles de cocina y mostrador en tiempo real con Supabase Realtime: los pedidos avanzan de pendiente a entregado sin recargar la página.","Stripe Payment Intents con webhook verificado para confirmar pagos del lado del servidor."],
+en:["Multi-restaurant platform: customers scan their table's QR code, browse the menu and order, paying by card (Stripe) or cash.","PostgreSQL schema (restaurants, staff roles, tables, menu, orders, payments, waiter calls) secured with Row Level Security policies and triggers.","Real-time kitchen and counter dashboards with Supabase Realtime: orders move from pending to delivered without a page reload.","Stripe Payment Intents with a verified webhook to confirm payments server-side."]}},
+{name:{es:"TaskFlow — Sistema seguro de gestión de tareas",en:"TaskFlow — Secure Task Management MVP"},
+tags:["Python","Flask","Firebase","pytest","2FA"],url:"https://github.com/juanpablo08205/todo-app",
+pts:{es:["Tres niveles de acceso (usuario, moderador y administrador), control de permisos y bitácora de auditoría.","Autenticación de dos factores (TOTP) con configuración por código QR y códigos de respaldo almacenados con hash.","20 pruebas automatizadas con pytest para autenticación, validación de datos y control de acceso."],
+en:["Three access levels (user, moderator, admin), permission decorators and an admin audit log.","Two-factor authentication (TOTP) with QR setup and hashed backup codes.","20 automated pytest tests covering authentication, input validation and access control."]}},
+{name:{es:"Papelería Manzanillo — Catálogo en línea y panel de administración",en:"Papelería Manzanillo — Store Catalog & Admin Panel"},
+tags:["React","TypeScript","Vite","Firebase","Leaflet"],url:"https://github.com/juanpablo08205/papeleriamzo",
+pts:{es:["Catálogo en línea de un comercio local, con búsqueda, categorías, páginas de producto y mapa interactivo de sucursales.","Panel de administración con acceso restringido para gestionar productos, categorías y sucursales, sincronizado en tiempo real con Firestore."],
+en:["Online catalog for a local stationery store, with search, categories, product pages and an interactive branch map.","Login-protected admin panel to manage products, categories and branches, synced in real time with Firestore."]}}
+];
+const S=[
+{h:{es:"Lenguajes",en:"Languages"},v:"TypeScript, JavaScript, Python, SQL, C#, Kotlin, HTML, CSS"},
+{h:{es:"Frontend",en:"Frontend"},v:"React, Next.js, Tailwind CSS, Blazor, Jetpack Compose"},
+{h:{es:"Backend y bases de datos",en:"Backend & data"},v:"Flask, PostgreSQL, Supabase, Firebase, REST APIs"},
+{h:{es:"Herramientas y prácticas",en:"Tools & practices"},v:{es:"Git, GitHub, pytest, Stripe API, control de acceso por roles, autenticación de dos factores",en:"Git, GitHub, pytest, Stripe API, role-based access control, two-factor authentication"}},
+{h:{es:"Inteligencia artificial",en:"Artificial intelligence"},v:{es:"Redes bayesianas y razonamiento probabilístico (HUGIN 9.6)",en:"Bayesian networks and probabilistic reasoning (HUGIN 9.6)"}}
+];
+const SO=[
+{h:{es:"Trabajo en equipo",en:"Teamwork"},d:{es:"Coordinación de tareas e integración de entregables en proyectos colaborativos y en la tesis en coautoría.",en:"Coordinating tasks and integrating deliverables in team projects and a co-authored thesis."}},
+{h:{es:"Adaptabilidad intercultural",en:"Intercultural adaptability"},d:{es:"Un semestre en Alemania, colaborando con estudiantes internacionales en inglés y alemán.",en:"A semester in Germany, working with international classmates in English and German."}},
+{h:{es:"Resolución de problemas",en:"Problem solving"},d:{es:"Soluciones completas, desde el diseño de la base de datos hasta la integración de pagos.",en:"End-to-end solutions, from database design to payment integration."}},
+{h:{es:"Aprendizaje autónomo",en:"Self-directed learning"},d:{es:"Aprendizaje independiente de nuevas tecnologías aplicadas en proyectos funcionales.",en:"Learning new technologies independently and applying them in working projects."}}
+];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pick=(v,l)=>typeof v==="string"?v:v[l];
+function render(l){
+  document.documentElement.lang=l;
+  const t=T[l];
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(t[k]!=null)el.textContent=t[k]});
+  document.getElementById("projList").innerHTML=P.map(p=>`<article class="card"><div class="side"><h3>${esc(p.name[l])}</h3><div class="tags">${p.tags.map(x=>`<span>${esc(x)}</span>`).join("")}</div><a class="repo" href="${esc(p.url)}">${esc(t.repo)} ↗</a></div><div class="body"><ul>${p.pts[l].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></article>`).join("");
+  document.getElementById("skillList").innerHTML=S.map(s=>`<div class="panel"><h3>${esc(s.h[l])}</h3><div>${esc(pick(s.v,l))}</div></div>`).join("");
+  document.getElementById("softList").innerHTML=SO.map(s=>`<dt>${esc(s.h[l])}</dt><dd>${esc(s.d[l])}</dd>`).join("");
+  [["t-k","k"],["t-r","r"],["t-m","m"],["t-p","p"]].forEach(([id,k])=>{const e=document.getElementById(id);if(e)e.textContent=t[k]});
+  document.title=t.title;
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.l===l)));
+  try{localStorage.setItem("cv-lang",l)}catch(e){}
+}
+let start="es";
+try{const s=localStorage.getItem("cv-lang");if(s==="es"||s==="en")start=s;else if(!(navigator.language||"es").toLowerCase().startsWith("es"))start="en"}catch(e){}
+if(location.hash==="#en")start="en";else if(location.hash==="#es")start="es";
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>render(b.dataset.l)));
+render(start);
+}
+</script>
+</body>
+</html>
